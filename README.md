@@ -31,27 +31,25 @@
 ### Steps to Set Up
 1. Clone the repository:
   
-Install dependencies:
-
-
-npm install
+### Install dependencies:
+  npm install
 
 
 
-Create a .env file in the root directory with the following variables:
+### Create a .env file in the root directory with the following variables:
 
 MONGO_URI=<your_mongodb_connection_string>
+
 JWT_SECRET=<your_jwt_secret>
+
 CLOUDINARY_CLOUD_NAME= <your_cloudinary_name>
 CLOUDINARY_API_KEY =  <your_cloudinary_apikey>
 CLOUDINARY_API_SECRET =  <your_cloudinary_apisecret>
 
-Start the application:
+### Start the application:
+  npm run dev
 
-
-npm run dev
-
-Access the application at http://localhost:8000
+### Access the application at http://localhost:8000
 
 
 MONGO_URI: MongoDB connection string.
