@@ -2,7 +2,6 @@
 
 
 
-# Job Portal Application
 
 
 ## Features
