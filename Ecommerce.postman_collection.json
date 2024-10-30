@@ -1,0 +1,447 @@
+{
+	"info": {
+		"_postman_id": "583083af-df1b-4da6-8436-507c1ad21586",
+		"name": "Ecommerce",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "37427388"
+	},
+	"item": [
+		{
+			"name": "Products",
+			"item": [
+				{
+					"name": "Add/Create a Product",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2NzE4ZTAzOWE2ZTlhN2YwNzc1NmZhYTgiLCJyb2xlIjoiYWRtaW4iLCJpYXQiOjE3Mjk3NDYzOTQsImV4cCI6MTcyOTc0OTk5NH0.XDRu3N9gJdvv8_f9emKyhsAzdObumzW9rHrkWDdX8-8",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "name",
+									"value": "Red Helmet",
+									"type": "text"
+								},
+								{
+									"key": "price",
+									"value": "2000",
+									"type": "text"
+								},
+								{
+									"key": "description",
+									"value": "Red Helmet Bike Safetty ",
+									"type": "text"
+								},
+								{
+									"key": "stockQuantity",
+									"value": "12",
+									"type": "text"
+								},
+								{
+									"key": "image",
+									"type": "file",
+									"src": [
+										"/D:/Mero local disk D/Javascript/Ecommerce Task/images/red helmet.jpg",
+										"/D:/Mero local disk D/Javascript/Ecommerce Task/images/Grey Shirt.jpg"
+									]
+								}
+							]
+						},
+						"url": {
+							"raw": "{{base_url}}/products/",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"products",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "View Products",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/products",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"products"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update Product",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "",
+								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2NzE4ZTAzOWE2ZTlhN2YwNzc1NmZhYTgiLCJyb2xlIjoiYWRtaW4iLCJpYXQiOjE3Mjk3NDYzOTQsImV4cCI6MTcyOTc0OTk5NH0.XDRu3N9gJdvv8_f9emKyhsAzdObumzW9rHrkWDdX8-8",
+								"type": "text",
+								"disabled": true
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\":\"Maroon Coloor Shirts for Kids \",\r\n    \"description\":\"Shirt for bachha\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{base_url}}/products/671f8c3a2ff604cf8a1b0a17",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"products",
+								"671f8c3a2ff604cf8a1b0a17"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete Product by Id",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2NzE4ZTAzOWE2ZTlhN2YwNzc1NmZhYTgiLCJyb2xlIjoiYWRtaW4iLCJpYXQiOjE3Mjk3MzcwNzgsImV4cCI6MTcyOTc0MDY3OH0.thqA7mF_TvamvuJhOIYuVmdVaSQYlF75dc5OoPCIB5c",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{base_url}}/products/delete/671f8c3a2ff604cf8a1b0a17",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"products",
+								"delete",
+								"671f8c3a2ff604cf8a1b0a17"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Product By Name",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/products?search=black",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"products"
+							],
+							"query": [
+								{
+									"key": "search",
+									"value": "black"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"description": "### Product API Endpoints\n\n1. **Create Product - By Admin Only**\n    \n\nPOST /products/\n\nRequest Body (form-data)\n\n{  \n\"name\": \"String\", // Name of the product  \n\"price\": \"Number\", // Price of the product  \n\"description\": \"String\", // Description of the product  \n\"stockQuantity\": \"Number\" // Available stock quantity\n\nimage:\"as a file\"  \n}\n\n**Response**\n\n- 201 Created\n    \n- 400: Product image is required\n    \n- 400: Product Name is required\n    \n- 400: Product Price is required\n    \n- 400: Product Description is required\n    \n- 400: Stock Quantity must be a positive integer\n    \n\n### **2.Update Product - By Admin Only**\n\nPUT /proucts/:id\n\n- **Parameters**\n    \n    - `id`: (Path parameter) The ID of the product to update.\n        \n\nRequest Body (form-data)\n\n{  \n\"name\": \"String\", // Name of the product  \n\"price\": \"Number\", // Price of the product  \n\"description\": \"String\", // Description of the product  \n\"stockQuantity\": \"Number\" // Available stock quantity\n\nimage:\"as a file\"  \n}\n\n- **Response**\n    \n\n1. 200 Ok\n    \n2. 404: Product not found\n    \n3. 400: Product Name cannot be empty\n    \n4. 400: Product Price must be a number\n    \n5. 400: Stock Quantity must be a positive integer\n    \n\n### 3\\. Delete **Product - By Admin Only**\n\nDELETE /products/delete/:id\n\n**Parameters**\n\n- `id`: (Path parameter) The ID of the product to update.\n    \n\n**Response**\n\n- 200 Ok\n    \n- 404: Product not found\n    \n\n### 4\\. View all Product - By user and admin\n\nGET /products\n\n**Response**\n\n- 200 Ok\n    \n- 404: Product not found\n    \n\n### 5\\. Serach Product By Name - By user and admin\n\nGET /products?search=\"productname\"\n\nQuery Params  \nsearch (optional)\n\nResponse\n\n- 200 Ok\n    \n- 404: Product not found"
+		},
+		{
+			"name": "Orders",
+			"item": [
+				{
+					"name": "GetOrderById",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2NzE4ZDE0MDZiYzAxYmUyMzAzYmJkZWUiLCJyb2xlIjoidXNlciIsImlhdCI6MTcyOTc1NTcyMCwiZXhwIjoxNzI5NzU5MzIwfQ.xMnkDYfn7jb17gKz3BRhjZSqzWNOYiZ_cNI5oX_J1_s",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2NzE4ZDE0MDZiYzAxYmUyMzAzYmJkZWUiLCJyb2xlIjoidXNlciIsImlhdCI6MTcyOTc1MTU3MSwiZXhwIjoxNzI5NzU1MTcxfQ.Aa_bendRXvtKyEbp7xYpTU3oggQne0SNlGZMOBpIubE",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{base_url}}/order/6721be2ede6f8e89e875dc3a",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"order",
+								"6721be2ede6f8e89e875dc3a"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "GetAllOrders-",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2NzE4ZDE0MDZiYzAxYmUyMzAzYmJkZWUiLCJyb2xlIjoidXNlciIsImlhdCI6MTcyOTc1NTcyMCwiZXhwIjoxNzI5NzU5MzIwfQ.xMnkDYfn7jb17gKz3BRhjZSqzWNOYiZ_cNI5oX_J1_s",
+								"type": "text",
+								"disabled": true
+							}
+						],
+						"url": {
+							"raw": "{{base_url}}/order/",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"order",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "CancelOrder By id",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2NzE4ZDE0MDZiYzAxYmUyMzAzYmJkZWUiLCJyb2xlIjoidXNlciIsImlhdCI6MTcyOTc1MTU3MSwiZXhwIjoxNzI5NzU1MTcxfQ.Aa_bendRXvtKyEbp7xYpTU3oggQne0SNlGZMOBpIubE",
+								"type": "text",
+								"disabled": true
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "{{base_url}}/order/cancel/671b7b74220c8e2c8ea29288",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"order",
+								"cancel",
+								"671b7b74220c8e2c8ea29288"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "PlaceOrder",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2NzE4ZDE0MDZiYzAxYmUyMzAzYmJkZWUiLCJyb2xlIjoidXNlciIsImlhdCI6MTcyOTgzMDE5NiwiZXhwIjoxNzI5ODMzNzk2fQ.UJN1hQuwa2bmpsi3vZSbA-dhUILCVLs-7QsquAD--Wc",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"products\": [\r\n        {\r\n            \"productId\": \"671f8c1d2ff604cf8a1b0a13\",\r\n            \"quantity\":1\r\n            \r\n        }\r\n    ]\r\n}\r\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{base_url}}/order/place/",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"order",
+								"place",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update Order By Id",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2NzE4ZDE0MDZiYzAxYmUyMzAzYmJkZWUiLCJyb2xlIjoidXNlciIsImlhdCI6MTcyOTc1NTcyMCwiZXhwIjoxNzI5NzU5MzIwfQ.xMnkDYfn7jb17gKz3BRhjZSqzWNOYiZ_cNI5oX_J1_s",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"products\": [\r\n        {\r\n            \"Id\": \"671b5dde6eeefd00281fc3c9\",\r\n            \"quantity\": 3\r\n        }\r\n       \r\n    ]\r\n}\r\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{base_url}}/order/update/6721b93e92ae7e083344f2ee",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"order",
+								"update",
+								"6721b93e92ae7e083344f2ee"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"description": "### 1\\. Place an Order - By User only\n\n- POST /order/place\n    \n- Request Body\n    \n\n{  \n\"products\": \\[  \n{  \n\"productId\": \"String\", // ID of the product  \n\"quantity\": \"Number\" // Quantity of the product  \n}  \n\\]  \n}\n\n#### Response\n\n- **201 Created**\n    \n- 400: No products provided for the order\n    \n- 404: Product not found\n    \n- 400: Product is out of stock\n    \n\n### **2. Get All Orders - By User and Admin\n\n**GET /order/\n\n**Response**\n\n- 200 Ok\n    \n\n### **3\\. Get Order by Id - By User and Admin**\n\n### GET /order/:id\n\n#### Parameters\n\n- **id**: (Path parameter) The ID of the order to retrieve.\n    \n\n**Response**\n\n- 200 Ok\n    \n- 404: Order not found\n    \n- 403: Unauthroized access\n    \n\n### **4\\. Cancel Order by Id - By User and Admin**\n\n### DELETE /order/cancel/:id\n\n#### Parameters\n\n- **id**: (Path parameter) The ID of the order to retrieve.\n    \n\n**Response**\n\n- 200 Ok\n    \n- 404: Order not found\n    \n- 400: Cannt cancel a delivered order\n    \n\n### **4\\. Update Order by Id - By User and Admin**\n\n### PUT /order/update/:id\n\n#### Parameters\n\n- **id**: (Path parameter) The ID of the order to retrieve.\n    \n\nRequest Body\n\n{  \n\"status\": \"String\", // Optional, new order status (pending, completed, cancelled) by admin only  \n\"products\": \\[  \n{  \n\"Id\": \"String\", // ID of the product to update  \n\"quantity\": \"Number\" // New quantity of the product  \n}  \n\\]  \n}\n\n**Response**\n\n- 200 Ok\n    \n- 404: Order not found\n    \n- 400: Cannt cancel a delivered order"
+		},
+		{
+			"name": "User",
+			"item": [
+				{
+					"name": "User Registration",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\":\"hari\",\r\n    \"email\": \"hari@gmail.com\",\r\n    \"password\": \"hari1\"\r\n    ,\"role\":\"user\"\r\n}\r\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{base_url}}/auth/register",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"auth",
+								"register"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "User Login",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"email\":\"hari@gmail.com\",\r\n    \"password\":\"hari1\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{base_url}}/auth/login",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"auth",
+								"login"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete user by Id - For Admin",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/auth/delete/user/6721be19de6f8e89e875dc35",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"auth",
+								"delete",
+								"user",
+								"6721be19de6f8e89e875dc35"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"description": "StartFragment\n\n1. **POST /api/auth/register**\n    \n\n- **Description**: Register a new user.\n    \n- **Request Body**:\n    \n    - **email**: User's email (required).\n        \n    - **password**: User's password (required).\n        \n- **Response**:\n    \n    - Success (201): Returns user details and a JWT token.\n        \n    - Error (400): Returns error message if registration fails (e.g., email already in use).\n        \n\n**2\\. POST /api/auth/login**\n\n- **Request Body**:\n    \n    - email: User's email (required).\n        \n    - password: User's password (required).\n        \n- **Response**:\n    \n    - **Success (200)**: Returns user details and a JWT token.\n        \n    - **Error (401)**: Returns error message if login fails (e.g., incorrect credentials).\n        \n\n**3\\. Delete /api/delete/user/:id**\n\n**Response**:\n\n- **Success (200)**: Returns a success message confirming the deletion.\n    \n- **Error (404)**: Returns error message if the user is not found.\n    \n- **Error (403)**: Returns error message if the user does not have permission to delete"
+		}
+	],
+	"auth": {
+		"type": "bearer"
+	},
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "base_url",
+			"value": "http://localhost:8000/api",
+			"type": "string"
+		}
+	]
+}
